@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SocketWebService } from '../../services/socket-web.service';
 
 @Component({
   selector: 'app-chat-layout',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./chat-layout.components.scss']
 })
 export class ChatLayoutComponent {
+
+  constructor(private socketSv: SocketWebService){
+
+
+  }
+
+  emit(){
+
+    this.socketSv.sendMessage('este es el mensaje');
+  }
+
+
+
+
 
 }

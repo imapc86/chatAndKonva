@@ -38,7 +38,7 @@
             class="color-piker" 
             id="color-text" 
             [(ngModel)]="currentNodeText.color"
-            (change)="changeTextColor()"
+            (input)="changeTextColor()"
           >
           <label for="color-text" class="cr-pointer">
             <span class="material-icons-outlined">keyboard_arrow_down</span>
@@ -76,7 +76,9 @@
     </button>
     <ul class="canvas-nav">
       <li>
-        <span class="material-icons-outlined" (click)="insertNewText()">title</span>
+        <button class="btn">
+          <span class="material-icons-outlined" (click)="insertNewText()">title</span>
+        </button>
       </li>
       <li>
         <input type="file" class="d-none" id="img-file" (change)="handleImageChange($event)" accept="image/*">

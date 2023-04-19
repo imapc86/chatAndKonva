@@ -73,7 +73,7 @@ export class MainComponent implements  AfterViewInit{
 
   constructor(private router: Router){ //private canvasSv: CanvasService
 
-    this.assetUrl = localStorage.getItem('assetSelected') || '';
+    this.assetUrl = localStorage.getItem('assetSelected') || 'https://fastly.picsum.photos/id/88/200/300.jpg?hmac=JmiMN7iyW4Saka82S4HzDvbOjMSB2k9NwTN29MHWqa4';
 
   }
 

@@ -9,12 +9,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { 
-    path: 'konva-app',
+    path: 'konvajs-app',
     loadChildren: () => import('./konvajs/konvajs.module').then(m => m.KonvajsModule)
   },
   { 
     path: 'chat-app', 
     loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule)
+  },
+  {
+    path: 'canvas-app',
+    loadChildren: () => import('./canvas-app/canvas-app.module').then(m => m.CanvasAppModule)
   },
   {
     path: '**',
