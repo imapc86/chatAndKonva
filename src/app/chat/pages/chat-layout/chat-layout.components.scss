@@ -30,7 +30,7 @@
 }
 
 .chat-content{
-  height: calc(100vh - 96px);
+  height: calc(100vh - 126px);
   overflow-y: auto;
   background-color: #f1ece6;
 }
@@ -46,6 +46,7 @@
   border-radius: 0px 10px 10px 10px;
   background-color: rgb(143, 207, 232);
   position: relative;
+  width: max-content;
 
   &::before{
     content: '';
@@ -77,5 +78,44 @@
     position: absolute;
     right: -19px;
     top:0;
+  }
+}
+
+.show-status{
+  height: 30px;
+  position: relative;
+  background-color: #e0e0e0;
+  color: rgb(101, 101, 101);
+  box-shadow: 0px 2px 8px 0px #a3a3a3;
+  z-index: 10;
+}
+
+.status{
+  position: relative;
+  margin: 0 2rem 0 0.5rem;
+
+  &::before{
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    right: -20px;
+    top: 5px;
+  }
+
+}
+
+.online-status{
+  color: green;
+  &::before{
+    background-color: green;
+  }
+}
+.offline-status{
+  color: red;
+  &::before{
+    background-color: red;
   }
 }

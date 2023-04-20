@@ -112,17 +112,22 @@
     </div>
   </div>
   <div class="col-md-12 col-sm-12 col-lg-8 px-0">
+    <div class="show-status d-flex justify-content-end align-items-center">
+      Server status:
+      <span *ngIf="socketSv.socketStatus"  class="status online-status"> Online</span>
+      <span *ngIf="!socketSv.socketStatus" class="status offline-status"> Offline</span>
+    </div>
     <div class="chat-container">
       <div class="chat-content d-flex flex-column">
 
-        <div class="msg-content msg-request">
-          <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit corrupti dolorum, necessitatibus nobis, enim unde alias, cumque explicabo possimus ratione culpa deleniti? Aliquid modi est quis repudiandae voluptates eaque ratione.</span>
+        <div *ngFor="let message of chatHistory.messages" class="msg-content" [class]="message.messageType == 'sent' ? 'msg-request' : 'msg-response align-self-end'">
+          <span>{{ message.message }}</span>
         </div>
 
-        <div class="msg-content msg-request">
+       <!--  <div class="msg-content msg-request">
           <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolore voluptate repudiandae id voluptatibus nisi, quibusdam labore consectetur cupiditate voluptas esse optio suscipit corporis! Rem reiciendis libero repudiandae recusandae autem.</span>
         </div>
-        <div class="msg-content msg-response align-self-end">
+        <div class="msg-content ">
           <span>
             Lorem 
           </span>
@@ -144,12 +149,23 @@
         </div>
         <div class="msg-content msg-request">
           <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci dolore voluptate repudiandae id voluptatibus nisi, quibusdam labore consectetur cupiditate voluptas esse optio suscipit corporis! Rem reiciendis libero repudiandae recusandae autem.</span>
+        </div> -->
+      </div>
+      <form (submit)="sendMessage()">
+        <div class="input-group">
+          <input 
+            type="text" 
+            autocomplete="off"
+            name="message"
+            class="form-control" 
+            placeholder="Tu mensaje" 
+            aria-label="Tu mensaje" 
+            aria-describedby="send-button"
+            [(ngModel)]="message"
+          >
+          <button class="btn btn-primary" type="submit" id="send-button">Send</button>
         </div>
-      </div>
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Tu mensaje" aria-label="Tu mensaje" aria-describedby="send-button">
-        <button class="btn btn-primary" type="button" id="send-button" (click)="emit()">Send</button>
-      </div>
+      </form>
     </div>
   </div>
 </div>
